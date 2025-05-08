@@ -33,7 +33,7 @@
         if ($this->session->flashdata('error_form_agregar')) { // Para errores específicos del form de agregar
             echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">' . $this->session->flashdata('error_form_agregar') . '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
         }
-        // Puedes añadir lógica similar para errores de actualización si los guardas en flashdata con keys específicas
+
         ?>
         <div class="row mb-3">
             <div class="col-md-12">
