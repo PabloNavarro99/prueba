@@ -1,55 +1,4 @@
 <?php
-/*
-defined('BASEPATH') or exit('No direct script access allowed');
-
-class Tareas extends CI_Controller
-{
-
-    public function __construct()
-    {
-        parent::__construct();
-        $this->load->model('TareaModel');
-        $this->load->helper('url');
-    }
-
-    public function index()
-    {
-        $data['tareas'] = $this->TareaModel->mis_tareas(); // ✅ Obtener tareas y pasarlas a la vista
-        $this->load->view('tareas', $data);
-    }
-
-    public function agregar()
-    {
-        $descripcion = $this->input->post('descripcion');
-        $categoria = $this->input->post('categoria');
-
-        if ($descripcion && $categoria) {
-            $this->TareaModel->registrar($descripcion, $categoria);
-        }
-
-        redirect('tareas');
-    }
-
-    public function completar($id)
-    {
-        $this->TareaModel->completar($id);
-        redirect('tareas');
-    }
-
-    public function eliminar($id)
-    {
-        $this->TareaModel->eliminar($id);
-        redirect('tareas');
-    }
-    public function actualizar($id)
-    {
-        $descripcion = $this->input->post('descripcion');
-        $categoria = $this->input->post('categoria');
-        $this->TareaModel->actualizar($id, $descripcion, $categoria);
-        redirect('tareas');
-    }
-}
-    */
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
@@ -71,14 +20,6 @@ class Tareas extends CI_Controller
 
     public function index()
     {
-        // Aquí puedes añadir una condición para que solo se muestren las tareas del usuario logueado
-        // Necesitarías añadir una columna `user_id` a tu tabla `tareas`
-        // $user_id = $this->session->userdata('user_id');
-        // $data['tareas'] = $this->TareaModel->mis_tareas_por_usuario($user_id);
-        /*
-        $data['tareas'] = $this->TareaModel->mis_tareas(); // Por ahora, muestra todas
-        $this->load->view('tareas', $data);
-        */
 
         $user_id = $this->session->userdata('id');
         $data['tareas'] = $this->TareaModel->mis_tareas($user_id);
