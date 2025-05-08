@@ -23,5 +23,4 @@ class Usuario_model extends CI_Model
         return $this->db->insert('usuarios', $data);
     }
 
-    // Puedes añadir otros métodos aquí si los necesitas, como para actualizar perfil, etc.
 }
