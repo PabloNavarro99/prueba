@@ -42,13 +42,7 @@ class Tareas extends CI_Controller
 
     public function completar($id)
     {
-        // Aquí también podrías verificar que la tarea pertenezca al usuario logueado antes de completarla
-        // $user_id = $this->session->userdata('user_id');
-        // if ($this->TareaModel->verificar_pertenencia_tarea($id, $user_id)) {
-        //     $this->TareaModel->completar($id);
-        // } else {
-        //     $this->session->set_flashdata('error', 'No tienes permiso para modificar esta tarea.');
-        // }
+
         $this->TareaModel->completar($id);
         redirect('tareas');
     }
