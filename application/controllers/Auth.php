@@ -50,9 +50,6 @@ class Auth extends CI_Controller
                     );
                     $this->session->set_userdata($session_data);
 
-                    // Opcional: Actualizar último login (necesitarías un campo en la tabla usuarios)
-                    // $this->Usuario_model->update_last_login($user->id);
-
                     redirect('tareas'); // Redirigir al ToDo List
                 } else {
                     // Usuario/contraseña incorrectos o usuario inactivo
@@ -91,7 +88,6 @@ class Auth extends CI_Controller
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|max_length[100]|is_unique[usuarios.email]|xss_clean');
         $this->form_validation->set_rules('contrasena', 'Contraseña', 'trim|required|min_length[8]');
         $this->form_validation->set_rules('confirmar_contrasena', 'Confirmar Contraseña', 'trim|required|matches[contrasena]');
-        // Puedes añadir campo 'nombre_completo' si quieres
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('auth/register_view');
