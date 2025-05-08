@@ -61,8 +61,7 @@ class TareaModel extends CI_Model
     public function eliminar($tarea_id_param, $user_id_param)
     {
         if ($this->es_mi_tarea($tarea_id_param, $user_id_param)) {
-            // CORRECTO: Eliminar usando el ID de la tarea, después de verificar que pertenece al usuario.
-            // No es necesario volver a poner user_id aquí porque es_mi_tarea ya lo verificó.
+            
             $this->db->where('id', $tarea_id_param);
             return $this->db->delete('tareas');
         }
