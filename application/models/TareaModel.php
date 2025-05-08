@@ -1,6 +1,4 @@
 <?php
-
-
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class TareaModel extends CI_Model
