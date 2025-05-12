@@ -68,19 +68,6 @@ class TareaModel extends CI_Model
         return false;
     }
 
-
-    public function actualizar($tarea_id_param, $user_id_param, $descripcion, $categoria)
-    {
-        if ($this->es_mi_tarea($tarea_id_param, $user_id_param)) {
-            $this->db->where('id', $tarea_id_param);
-            $data_to_update = [
-                'descripcion' => $descripcion,
-                'categoria'   => $categoria
-            ];
-            return $this->db->update('tareas', $data_to_update);
-        }
-        return false;
-    }
     /*
     public function actualizar($tarea_id_param, $user_id_param, $descripcion, $categoria)
     {
@@ -95,4 +82,31 @@ class TareaModel extends CI_Model
         return false;
     }
         */
+    /*
+    public function actualizar($tarea_id_param, $user_id_param, $descripcion, $categoria)
+    {
+        if ($this->es_mi_tarea($tarea_id_param, $user_id_param)) {
+            $this->db->where('id', $tarea_id_param);
+            $data_to_update = [
+                'descripcion' => $descripcion,
+                'categoria'   => $categoria
+            ];
+            return $this->db->update('tareas', $data_to_update);
+        }
+        return false;
+    }
+        */
+
+    public function actualizar($tarea_id_param, $user_id_param, $descripcion, $categoria)
+    {
+        if ($this->es_mi_tarea($tarea_id_param, $user_id_param)) {
+            $this->db->where('id', $tarea_id_param);
+            $data_to_update = [
+                'descripcion' => $descripcion,
+                'categoria'   => $categoria
+            ];
+            return $this->db->update('tareas', $data_to_update);
+        }
+        return false;
+    }
 }

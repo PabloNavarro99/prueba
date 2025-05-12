@@ -102,8 +102,7 @@
                                                 <?php echo form_close(); ?>
                                             </div>
                                         </td>
-                                        <?php echo form_close(); // ESTE FORM_CLOSE NO CORRESPONDE A NINGÚN FORM_OPEN. Eliminar si el anterior ya cerró el form de actualizar 
-                                        ?>
+
                                     <?php endif; ?>
                                 </tr>
                             <?php endforeach; ?>

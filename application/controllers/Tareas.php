@@ -56,11 +56,18 @@ class Tareas extends CI_Controller
 
     public function actualizar($id)
     {
-        // Similar a completar, verificar pertenencia
         $descripcion = $this->input->post('descripcion', TRUE);
         $categoria = $this->input->post('categoria', TRUE);
-        //$this->TareaModel->actualizar($id, $descripcion, $categoria);
-        $this->TareaModel->actualizar($tarea_id_int, $this->user_id_session, $descripcion, $categoria);
+        $user_id = $this->session->userdata('id');
+
+        $actualizado = $this->TareaModel->actualizar($id, $user_id, $descripcion, $categoria);
+
+        if ($actualizado) {
+            $this->session->set_flashdata('success', 'Tarea actualizada correctamente.');
+        } else {
+            $this->session->set_flashdata('error', 'No se pudo actualizar la tarea.');
+        }
+
         redirect('tareas');
     }
 }
